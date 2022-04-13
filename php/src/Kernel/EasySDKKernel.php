@@ -228,7 +228,7 @@ class EasySDKKernel
     public function verify($respMap, $alipayPublicKey)
     {
         $resp = json_decode($respMap[AlipayConstants::BODY_FIELD], true);
-        var_dump($resp);
+        // var_dump($resp);
         $sign = $resp[AlipayConstants::SIGN_FIELD];
         $signContentExtractor = new SignContentExtractor();
         $content = $signContentExtractor->getSignSourceData($respMap[AlipayConstants::BODY_FIELD],
