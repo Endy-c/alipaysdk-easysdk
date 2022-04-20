@@ -141,7 +141,7 @@ modifyImageTextContent(contentId: string, title: string, cover: string, content:
 * API声明
 
 sendText(text: string)
-			
+            
 * 入参说明
 
 | 字段名  | 类型     | 必填 | 说明 |
@@ -156,7 +156,7 @@ sendText(text: string)
 * API声明
 
 sendImageText(articles: [ Article ])
-			
+            
 * 入参说明
 
 | 字段名  | 类型     | 必填 | 说明 |
@@ -223,7 +223,7 @@ Keyword对象说明
 * API声明
 
 recallMessage(messageId: string)
-			
+            
 * 入参说明
 
 | 字段名  | 类型     | 必填 | 说明 |
@@ -238,7 +238,7 @@ recallMessage(messageId: string)
 * API声明
 
 setIndustry(primaryIndustryCode: string, primaryIndustryName: string, secondaryIndustryCode: string, secondaryIndustryName: string)
-			
+            
 * 入参说明
 
 | 字段名  | 类型     | 必填 | 说明 |
@@ -256,7 +256,7 @@ setIndustry(primaryIndustryCode: string, primaryIndustryName: string, secondaryI
 * API声明
 
 getIndustry()
-			
+            
 * 入参说明
 
 无
@@ -273,7 +273,7 @@ getIndustry()
 * API声明
 
 createTemplate(uniqueId: string, tplContent: string)
-			
+            
 * 入参说明
 
 | 字段名  | 类型     | 必填 | 说明 |
@@ -289,7 +289,7 @@ createTemplate(uniqueId: string, tplContent: string)
 * API声明
 
 updateTemplate(uniqueId: string, tplContent: string)
-			
+            
 * 入参说明
 
 | 字段名  | 类型     | 必填 | 说明 |
@@ -305,7 +305,7 @@ updateTemplate(uniqueId: string, tplContent: string)
 * API声明
 
 addInstance(tplId: string, tplParams: string, recognitionType: string, recognitionInfo: string)
-			
+            
 * 入参说明
 
 | 字段名  | 类型     | 必填 | 说明 |
@@ -323,7 +323,7 @@ addInstance(tplId: string, tplParams: string, recognitionType: string, recogniti
 * API声明
 
 updateInstance(serialNumber: string, channelId: string, tplParams: string, status: string, verifyCode: string, verifyType: string)
-			
+            
 * 入参说明
 
 | 字段名  | 类型     | 必填 | 说明 |
@@ -347,7 +347,7 @@ updateInstance(serialNumber: string, channelId: string, tplParams: string, statu
 * API声明
 
 send(toUserId: string, formId: string, userTemplateId: string, page: string, data: string)
-			
+            
 * 入参说明
 
 | 字段名  | 类型     | 必填 | 说明 |
@@ -371,7 +371,7 @@ send(toUserId: string, formId: string, userTemplateId: string, page: string, dat
 * API声明
 
 init(outerOrderNo: string, bizCode: string, identityParam: IdentityParam, merchantConfig: MerchantConfig)
-			
+            
 * 入参说明
 
 | 字段名  | 类型     | 必填 | 说明 |
@@ -404,7 +404,7 @@ MerchantConfig对象说明
 * API声明
 
 certify(certifyId: string)
-			
+            
 * 入参说明
 
 | 字段名  | 类型     | 必填 | 说明 |
@@ -419,7 +419,7 @@ certify(certifyId: string)
 * API声明
 
 query(certifyId: string)
-			
+            
 * 入参说明
 
 | 字段名  | 类型     | 必填 | 说明 |
@@ -623,9 +623,9 @@ ISV对接当面付产品需涉及返佣时，请先阅读[政策详情](https://
 Map<String, String> extendParams = new HashMap<>();
 extendParams.put("sys_service_provider_id", "<--请填写ISV签约协议的PID，比如：2088511833207846-->");
 AlipayTradePayResponse response = Factory.Payment.FaceToFace()
-	.agent("<--请填写商户应用授权后获取到的app_auth_token，比如：ca34ea491e7146cc87d25fca24c4cD11-->")
-	.optional("extend_params", extendParams)
-	.pay("iPhone6 16G", "64628156-f784-4572-9540-485b7c91b850", "0.01", "289821051157962364");
+    .agent("<--请填写商户应用授权后获取到的app_auth_token，比如：ca34ea491e7146cc87d25fca24c4cD11-->")
+    .optional("extend_params", extendParams)
+    .pay("iPhone6 16G", "64628156-f784-4572-9540-485b7c91b850", "0.01", "289821051157962364");
 ```
 
 --- 
@@ -657,9 +657,9 @@ ISV对接当面付产品需涉及返佣时，请先阅读[政策详情](https://
 Map<String, String> extendParams = new HashMap<>();
 extendParams.put("sys_service_provider_id", "<--请填写ISV签约协议的PID，比如：2088511833207846-->");
 AlipayTradePrecreateResponse response = Payment.FaceToFace()
-	.agent("<--请填写商户应用授权后获取到的app_auth_token，比如：ca34ea491e7146cc87d25fca24c4cD11-->")
-	.optional("extend_params", extendParams)
-	.preCreate("iPhone6 16G", "64628156-f784-4572-9540-485b7c91b850", "0.01");
+    .agent("<--请填写商户应用授权后获取到的app_auth_token，比如：ca34ea491e7146cc87d25fca24c4cD11-->")
+    .optional("extend_params", extendParams)
+    .preCreate("iPhone6 16G", "64628156-f784-4572-9540-485b7c91b850", "0.01");
 ```
 
 --- 
@@ -814,6 +814,46 @@ execute(method: string, textParams: map[string]string, bizParams: map[string]any
 | msg | string | 是  |  [网关返回码描述](https://docs.open.alipay.com/common/105806) |
 | subCode | string | 否  |  业务返回码，参见具体的API接口文档 |
 | subMsg | string | 否  |  业务返回码描述，参见具体的API接口文档 |
+
+### 对小程序my.getPhoneNumber返回内容进行验签
+* API声明
+
+verify(encrypted: string): bool
+
+* 接口说明
+
+对于支付宝小程序API：my.getPhoneNumber返回的{response:"密文","sign":"签名"}响应内容进行验签的方法
+```js
+    my.getPhoneNumber({
+      success: (res) => {
+        let encryptedData = res.response;
+        my.request({
+            url: 'your api address',
+            data: {
+              "encrypted": encryptedData
+            },
+            success: (res) => {
+              // do sth.
+            }
+        });
+      },
+      fail: (res) => {
+          console.log('getPhoneNumber_fail');
+      },
+    })
+```
+
+* 入参说明
+
+| 字段名  | 类型     | 必填 | 说明 |
+|------|--------|----|----|
+| encrypted | string | 是  |  小程序返回的res.response |
+
+* 出参说明
+
+| 字段名  | 类型     | 必填 | 说明 |
+|------|--------|----|----|
+| N/A | bool | 是  |  只返回验签结果，true: 验签成功，false: 验签失败，封装code等由调用逻辑实现 |
 
 ---
 
