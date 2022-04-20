@@ -7,6 +7,15 @@ Alipay Esay SDK for PHP让您不用复杂编程即可访支付宝开放平台开
 
 下面向您介绍Alipay Easy SDK for PHP 的基本设计理念和使用方法。
 
+## CHANGELOG
+2022-04-20 Version: 2.2.4
+1. 增加对小程序my.getPhoneNumber返回内容进行验签的方法
+```php
+    if (!Factory::util()->generic()->verify($response)) {
+        return ['code' => 40003, 'msg' => '验签失败'];
+    }
+```
+
 ## 设计理念
 不同于原有的[Alipay SDK](https://openhome.alipay.com/doc/sdkDownload.resource?sdkType=PHP)通用而全面的设计理念，Alipay Easy SDK对开放能力的API进行了更加贴近高频场景的精心设计与裁剪，简化了服务端调用方式，让调用API像使用语言内置的函数一样简便。
 
@@ -218,10 +227,12 @@ Alipay Easy SDK将致力于保持良好的API命名，以符合开发者的编�
 | Util      | AES             | decrypt                | -                                                         |
 | Util      | AES             | encrypt                | -                                                         |
 | Util      | Generic         | execute                | -                                                         |
+| Util      | Generic         | verify                 | -                                                         |
+
 
 > 注：更多高频场景的API持续更新中，敬请期待。
 
 ## 文档
-[API Doc](./../APIDoc.md)
+[API Doc](./APIDoc.md)
 
-[Alipay Easy SDK](./../README.md)
+[Alipay Easy SDK](./README.md)

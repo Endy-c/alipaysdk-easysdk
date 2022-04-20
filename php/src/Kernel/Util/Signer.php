@@ -42,6 +42,20 @@ class Signer
         return $result;
     }
 
+    /**
+     * [verifyEncryptedParams 小程序前端返回的敏感信息验签]
+     * @param  [type] $parameters [description]
+     * @param  [type] $publicKey  [description]
+     * @return [type]             [description]
+     */
+    public function verifyEncryptedParams($parameters, $publicKey)
+    {
+        $sign = $parameters['sign'];
+        // 密文两端要加\"
+        $content = "\"" . $parameters['response'] . "\"";
+        return $this->verify($content, $sign, $publicKey);
+    }
+
     public function verifyParams($parameters, $publicKey)
     {
         $sign = $parameters['sign'];

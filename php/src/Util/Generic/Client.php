@@ -4,6 +4,7 @@
 namespace Alipay\EasySDK\Util\Generic;
 
 use Alipay\EasySDK\Kernel\EasySDKKernel;
+use Alipay\EasySDK\Kernel\Util\Signer;
 use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Request;
 use AlibabaCloud\Tea\Exception\TeaError;
@@ -224,6 +225,19 @@ class Client {
         return AlipayOpenApiGenericSDKResponse::fromMap($response);
         $_lastRequest = $_request;
         $_response= Tea::send($_request);
+    }
+
+    /**
+     * [verify 对小程序my.getPhoneNumber返回内容进行验签的方法]
+     * @param  string $response [小程序接口返回的response]
+     * @return bool             [验签是否成功，true: 成功，false: 失败]
+     */
+    public function verify($response)
+    {
+        $alipayPublicKey = $this->_kernel->getConfig("alipayPublicKey");
+        $signer = new Signer();
+        $params = json_decode($response, true);
+        return $signer->verifyEncryptedParams($params, $alipayPublicKey);
     }
 
     /**
