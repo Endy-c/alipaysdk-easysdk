@@ -4,8 +4,8 @@
     "type": "library",
     "authors": [
         {
-            "name": "junying.wjy",
-            "email": "junying.wjy@antfin.com"
+            "name": "junying.wjy, Endy",
+            "email": "junying.wjy@antfin.com, endy@evit.net.cn"
         }
     ],
     "autoload": {
