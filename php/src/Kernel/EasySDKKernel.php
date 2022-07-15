@@ -135,7 +135,11 @@ class EasySDKKernel
 
         do {
             $readLength = $stream->read(1024);
-        } while (0 != $readLength);
+        } while (!$readLength);
+        /**
+         * in PHP 8.0 or above: 0 != '' always true, this is an endless loop
+         */
+        // } while (0 != $readLength);
         return $stream;
     }
 
