@@ -360,7 +360,16 @@ class EasySDKKernel
 
     }
 
-    private function getSortedMap($systemParams, $bizParams, $textParams)
+    private function getExcludeMethods()
+    {
+        return [
+            // 占位用，兼容不传递接口名称的情况
+            'placeholder',
+            'alipay.merchant.item.file.upload',
+        ];
+    }
+
+    private function getSortedMap($systemParams, $bizParams, $textParams, $method = 'placeholder')
     {
         $this->textParams = $textParams;
         $this->bizParams = $bizParams;
@@ -389,7 +398,7 @@ class EasySDKKernel
                 $sortedMap = $this->textParams;
             }
         }
-        if ($this->getConfig(AlipayConstants::NOTIFY_URL_CONFIG_KEY) != null) {
+        if (!in_array($method, $this->getExcludeMethods()) && $this->getConfig(AlipayConstants::NOTIFY_URL_CONFIG_KEY) != null) {
             $sortedMap[AlipayConstants::NOTIFY_URL_FIELD] = $this->getConfig(AlipayConstants::NOTIFY_URL_CONFIG_KEY);
         }
         return $sortedMap;
